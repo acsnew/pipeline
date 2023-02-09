@@ -1,16 +1,22 @@
 pipeline {
     agent any
+
     stages {
-        stage('Build') {
+        stage('Change Permissions') {
             steps {
-                echo 'Building...'
-                sh './build.sh'
+                sh 'sudo chmod +x build.sh'
             }
         }
+
+        stage('Build') {
+            steps {
+                sh 'sudo ./build.sh'
+            }
+        }
+
         stage('Test') {
             steps {
-                echo 'Testing...'
-                sh './test.sh'
+                sh 'sudo ./test.sh'
             }
         }
     }
