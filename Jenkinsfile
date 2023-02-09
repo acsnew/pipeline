@@ -5,6 +5,7 @@ pipeline {
         stage('Change Permissions') {
             steps {
                 sh 'chmod +x build.sh'
+		sh 'chmod +x test.sh'
             }
         }
 
